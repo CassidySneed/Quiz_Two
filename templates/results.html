@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Star Wars Character Results
+{% endblock title %}
+
+{% block content %}
+
+{% if person %}
+
+<div class="container text-center text-center text-secondary mt-5">
+    <div class="row align-items-start">
+        <div class="col">
+            <h3>Characteristics: </h3>
+            <h5>Name: {{person.name}}</h5>
+            <h5>Height: {{person.height}}</h5>
+            <h5>Mass: {{person.mass}}</h5>
+            <h5>Hair Color: {{person.hair_color}}</h5>
+            <h5>Eye Color: {{person.eye_color}}</h5>
+            <h5>Homeworld: {{homeworld.name}}</h5>
+        </div>
+        <div class="col">
+            <h3>In these films:</h3>
+                {% for film in films %}
+                    <h5>{{film.title}}</h5>
+                {% endfor %}
+        </div>
+
+{% else %}
+<h3 class="text-center"> Sorry, Character not found </h3>
+{% endif %}
+
+
+{% endblock %}
